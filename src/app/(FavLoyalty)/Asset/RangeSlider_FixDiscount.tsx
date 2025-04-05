@@ -2,6 +2,7 @@ import * as React from 'react';
 import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
+import { ReddemPointContext } from '../context/RedeemPointContext';
 
 function ValueLabelComponent(props: SliderValueLabelProps) {
   const { children, value } = props;
@@ -24,7 +25,7 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
     height: 20,
     width: 20,
     backgroundColor: '#3B9C84',
-    border:'3px solid #fff',
+    border: '3px solid #fff',
     // boxShadow: '0 0 0 3.072px rgba(68, 161, 137, 0.20)',
     '&:focus, &:hover, &.Mui-active': {
       boxShadow: '0 0 0 3.072px rgba(68, 161, 137, 0.20)',
@@ -53,11 +54,13 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
       color: theme.palette.mode === 'dark' ? 'white' : 'white',
     },
   },
+
   '& .MuiSlider-track': {
     border: 'none',
     height: 8,
     backgroundColor: '#49a68c'
   },
+
   '& .MuiSlider-rail': {
     opacity: 0.5,
     backgroundColor: '#c8e9e2',
@@ -65,9 +68,10 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
   },
 }));
 
-interface AirbnbThumbComponentProps extends React.HTMLAttributes<unknown> {}
+interface AirbnbThumbComponentProps extends React.HTMLAttributes<unknown> { }
 
 function AirbnbThumbComponent(props: AirbnbThumbComponentProps) {
+
   const { children, ...other } = props;
   return (
     <SliderThumb {...other}>
@@ -80,7 +84,8 @@ function AirbnbThumbComponent(props: AirbnbThumbComponentProps) {
 }
 
 export default function CustomizedSlider() {
+  const { points, SyncPoints }: any = React.useContext(ReddemPointContext)
   return (
-      <IOSSlider aria-label="ios slider" defaultValue={60} valueLabelDisplay="on" />
+    <IOSSlider aria-label="ios slider" defaultValue={60} value={points} valueLabelDisplay="on" onChange={SyncPoints} />
   );
 }

@@ -36,13 +36,11 @@ export default function ProfileCompletion() {
                                     />
 
                                     <TextField
-
                                         label="Information 3"
                                         onChange={() => { }}
                                         autoComplete="email"
                                     />
                                     <TextField
-
                                         label="Information 4"
                                         onChange={() => { }}
                                         autoComplete="email"

@@ -1086,8 +1086,8 @@ body {
 .FixDiscount_inputStyles {
   height: 35px;
   border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 450;
+  font-size: 0.9rem;
+  font-weight: 400;
   line-height: 1.5rem;
   letter-spacing: initial;
   position: relative;

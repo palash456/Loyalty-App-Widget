@@ -1,10 +1,14 @@
 "use client"
+import * as React from 'react';
 import ButtonMUI from "../Button_RedeemCode"
 import RangeSlider from "../RangeSlider_FixDiscount"
 import Header from '../Header_InnerPages'
 import { motion, AnimatePresence } from 'framer-motion';
+import { ReddemPointContext } from '../../context/RedeemPointContext';
+
 
 export default function FixDiscount(props: any) {
+    const { points, SyncPoints }: any = React.useContext(ReddemPointContext)
 
     return (
         <>
@@ -40,7 +44,7 @@ export default function FixDiscount(props: any) {
                                     </div>
                                     <div className="value-enter-area">
                                         <div className='value-input'>
-                                            <input className="FixDiscount_inputStyles" id=":r4:" placeholder="$60" aria-labelledby=":r4:Label" aria-invalid="false" type="text" value=""></input>
+                                            <input className="FixDiscount_inputStyles" id=":r4:" placeholder="$60" aria-labelledby=":r4:Label" aria-invalid="false" type="text" value={points}></input>
                                         </div>
                                         <ButtonMUI />
                                     </div>
